@@ -1,0 +1,71 @@
+
+
+
+
+proc connectJointCluster( string $jointName,
+                          int $jointIndex,
+                          string $srcSkinCluster,
+                          string $dstSkinCluster )
+{
+    int $i = $jointIndex;
+    print("joint: "+$i+" : "+$jointName+"\n" );
+    if ( !objExists( $jointName+".lockInfluenceWeights" ) )
+    {
+        connectAttr ($jointName+".liw") ($dstSkinCluster + ".lockWeights["+$i+"]");
+    }
+ 
+    connectAttr ($jointName+".worldMatrix[0]") ($dstSkinCluster + ".matrix["+$i+"]");
+    connectAttr ($jointName+".objectColorRGB") ($dstSkinCluster + ".influenceColor["+$i+"]");
+ 
+    //float $m[] = `getAttr ($jointName+".wim")`;
+    // todo prefer using this instead:
+    float $m[] = `getAttr ($srcSkinCluster + ".bindPreMatrix["+$i+"]")`;
+ 
+ 
+    setAttr ($dstSkinCluster + ".bindPreMatrix["+$i+"]") -type "matrix" $m[0] $m[1] $m[2] $m[3] $m[4] $m[5] $m[6] $m[7] $m[8] $m[9] $m[10] $m[11] $m[12] $m[13] $m[14] $m[15];
+}
+global proc string find_skin_cluster_from_mesh(string $transformNode) 
+{
+    string $historyNodes[] = `listHistory $transformNode`;
+    for ($node in $historyNodes) {
+        if (`nodeType $node` == "skinCluster") 
+        {
+            return $node;
+        }
+    }
+    return "";
+} 
+
+global proc ConvertToCustomSkinCluster()
+{
+    string $selectedMeshes[] = `ls -sl -dag -type "mesh"`;;
+    string $mesh = $selectedMeshes[0];
+    string $cluster = find_skin_cluster_from_mesh( $mesh );
+ 
+    if( $cluster == "" ){
+        return;
+    }
+ 
+    // Get joints influencing the mesh:
+    int $joint_indices[] = `getAttr -multiIndices ($cluster+".matrix")`;
+    string $joint_names[] = `listConnections ($cluster+".matrix")`;
+ 
+    // Create custom skin cluster:
+    string $deformers[] = `deformer -type "myHRBFSkinCluster"`;
+    string $customSkinCluster = $deformers[0];
+ 
+    // Link joints and copy bind pose matrices from the source skin cluster:
+    for( $i = 0; $i < size($joint_indices); ++$i) {
+        int $j_idx = $joint_indices[$i];
+        string $j_name = $joint_names[$i];
+        connectJointCluster( $j_name, $j_idx , $cluster, $customSkinCluster );
+    }
+ 
+    // connect skin weights to force copy:
+    connectAttr ($cluster+".weightList") ($customSkinCluster+".weightList");
+ 
+    delete $cluster;
+}
+ 
+ConvertToCustomSkinCluster();
+ 
