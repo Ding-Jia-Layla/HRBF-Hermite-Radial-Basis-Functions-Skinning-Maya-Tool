@@ -2,7 +2,7 @@ x64/Debug/
 cmake-*
 *.~
 *.o
-build/
+
 .vscode/
 
 # ���Ա������ɵ��ļ�

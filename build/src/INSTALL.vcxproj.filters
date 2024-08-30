@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="E:\CAVE\term2\sim\simulationAssign\build\CMakeFiles\2bf4d71b52e07667f0be8131c686af14\INSTALL_force.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{03C62455-08D0-315F-BBB6-AF5190DF3205}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,5 @@
+# CMake generation dependency list for this directory.
+C:/Users/hoast/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake
+C:/Users/hoast/share/cmake-3.28/Modules/FindPackageMessage.cmake
+E:/CAVE/term2/sim/simulationAssign/cmake_modules/FindMaya.cmake
+E:/CAVE/term2/sim/simulationAssign/src/CMakeLists.txt
