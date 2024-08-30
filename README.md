@@ -16,6 +16,12 @@ This tool provides an advanced skinning solution within Maya using Hermite Radia
         - `git clone https://github.com/Ding-Jia-Layla/HRBF-Skinning-Maya-Tool.git`
     -  Build the plug-in
         - cmake -H. -B<build_directory> -G <generator>
+        - Take windows for example:
+        ```
+            # mkdir build
+            # cmake -S. -Bbuild -G "Visual Studio 17 2022" 
+            # cmake --build build
+        ```
 2. **Installing the Plugin**:
     - Copy the Plugin to Maya's Plugin Directory:
         - Copy the plugin file(`add-buildHRBF-finalAdjust.mll`) to the Maya plugins directory:
