@@ -47,8 +47,7 @@ This tool provides an advanced skinning solution within Maya using Hermite Radia
 </p>
 
 ## Supplementary Information
-This project is based on this paper(https://dl.acm.org/doi/10.1145/2461912.
-2461960). 
+This project is based on this paper(https://dl.acm.org/doi/10.1145/2461912.2461960). 
 
 Detailed report can be found in `simulation_report.pdf`.
  
