@@ -31,11 +31,11 @@ This tool provides an advanced skinning solution within Maya using Hermite Radia
 - Comparison with custom skinning
     <p align="center">
     <figure style="display: inline-block; margin: 10px;">
-        <img src="example/result/LBS.png" width="100" height="150" />
-        <figcaption>LBS Result</figcaption>
+        <img src="example/result/LBS.png" width="150" height="200" />
+        <figcaption>LBS</figcaption>
     </figure>
     <figure style="display: inline-block; margin: 10px;">
-        <img src="example/result/HRBF.png" width="100" height="150" />
-        <figcaption>HRBF Result</figcaption>
+        <img src="example/result/HRBF.png" width="150" height="200" />
+        <figcaption>HRBF</figcaption>
     </figure>
 </p>
