@@ -1,0 +1,47 @@
+x64/Debug/
+cmake-*
+*.~
+*.o
+build/
+.vscode/
+
+# ���Ա������ɵ��ļ�
+bin/
+obj/
+out/
+
+# ���� Visual Studio �û����ú�ϵͳ�ļ�
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# ���� VS �����˽���ļ�
+.vs/
+
+# ���� NuGet ���ļ���
+packages/
+
+# ���Թ�����־
+*.log
+*.tlog
+*.vsix
+*.diag
+
+# �������������ļ�
+ipch/
+*.pch
+*.ilk
+*.meta
+*.obj
+*.iobj
+*.pch
+*.pdb
+*.ipdb
+*.tmp
+*.opendb
+*.opensdf
+*.tlog
+*.unsuccessfulbuild
+*.lastbuildstate
+*.res
